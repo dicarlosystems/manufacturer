@@ -1,0 +1,17 @@
+{
+    "name": "Manufacturer",
+    "alias": "manufacturer",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Manufacturer\\Providers\\ManufacturerServiceProvider"
+    ],
+    "aliases":{},
+    "files": [
+        "start.php"
+    ],
+    "icon": "th-large",
+    "plural": "manufacturer"
+}

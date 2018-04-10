@@ -1,0 +1,15 @@
+{
+    "name": "invoiceninja/manufacturer",
+    "description": "",
+    "authors": [
+        {
+            "name": "Hillel Coren",
+            "email": "contact@invoiceninja.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Modules\\Manufacturer\\": ""
+        }
+    }
+}
