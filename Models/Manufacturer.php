@@ -19,12 +19,12 @@ class Manufacturer extends EntityModel
     /**
      * @var string
      */
-    protected $fillable = [""];
+    protected $fillable = ["name"];
 
     /**
      * @var string
      */
-    protected $table = 'manufacturer';
+    protected $table = 'manufacturer__manufacturers';
 
     public function getEntityType()
     {

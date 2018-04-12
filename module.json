@@ -6,12 +6,13 @@
     "active": 1,
     "order": 0,
     "providers": [
-        "Modules\\Manufacturer\\Providers\\ManufacturerServiceProvider"
+        "Modules\\Manufacturer\\Providers\\ManufacturerServiceProvider",
+        "Modules\\Manufacturer\\Providers\\ManufacturerEventServiceProvider"
     ],
     "aliases":{},
     "files": [
         "start.php"
     ],
-    "icon": "th-large",
+    "icon": "puzzle-piece",
     "plural": "manufacturer"
 }

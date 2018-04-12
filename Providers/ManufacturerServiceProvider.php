@@ -55,8 +55,12 @@ class ManufacturerServiceProvider extends AuthServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            __DIR__.'/../Config/config.php' => config_path('manufacturer.php'),
-        ]);
+            __DIR__.'/../Config/config.php' => config_path('modules.manufacturer' . '.php'),
+        ], 'config');
+
+        //  merge any registered relationships into the main config
+        $this->mergeConfigFrom(__DIR__.'/../Config/relations.php', 'modules.relations');
+
         $this->mergeConfigFrom(
             __DIR__.'/../Config/config.php', 'manufacturer'
         );

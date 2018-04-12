@@ -24,10 +24,10 @@ class ManufacturerRepository extends BaseRepository
 
     public function find($filter = null, $userId = false)
     {
-        $query = DB::table('manufacturer')
+        $query = DB::table('manufacturer__manufacturers')
                     ->where('manufacturer.account_id', '=', \Auth::user()->account_id)
                     ->select(
-                        
+
                         'manufacturer.public_id',
                         'manufacturer.deleted_at',
                         'manufacturer.created_at',
@@ -67,5 +67,4 @@ class ManufacturerRepository extends BaseRepository
 
         return $entity;
     }
-
 }

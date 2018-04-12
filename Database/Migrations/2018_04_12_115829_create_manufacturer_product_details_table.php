@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateManufacturerTable extends Migration
+class CreateManufacturerProductDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,17 @@ class CreateManufacturerTable extends Migration
      */
     public function up()
     {
-        Schema::create(strtolower('manufacturer__manufacturers'), function (Blueprint $table) {
+        Schema::create(strtolower('manufacturer__product_details'), function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id')->index();
             $table->unsignedInteger('account_id')->index();
             $table->unsignedInteger('client_id')->index()->nullable();
 
+			$table->string('ean13')->nullable();
+			$table->string('upca')->nullable();
+            $table->string('barcode')->nullable();
+			$table->unsignedInteger('manufacturer_id')->nullable();
+            $table->unsignedInteger('product_id');
 
             $table->timestamps();
             $table->softDeletes();
@@ -26,6 +31,8 @@ class CreateManufacturerTable extends Migration
             $table->foreign('account_id')->references('id')->on('accounts')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreign('manufacturer_id')->references('id')->on('manufacturer__manufacturers')->onDelete('cascade');
 
             $table->unsignedInteger('public_id')->index();
             $table->unique( ['account_id', 'public_id'] );
@@ -39,6 +46,6 @@ class CreateManufacturerTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(strtolower('manufacturer__manufacturers'));
+        Schema::dropIfExists(strtolower('manufacturer__product_details'));
     }
 }
