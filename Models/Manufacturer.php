@@ -19,7 +19,9 @@ class Manufacturer extends EntityModel
     /**
      * @var string
      */
-    protected $fillable = ["name"];
+    protected $fillable = [
+        "name"
+    ];
 
     /**
      * @var string

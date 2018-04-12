@@ -20,7 +20,7 @@
             <div class="panel panel-default">
             <div class="panel-body">
 
-                
+               {!! Former::text('name') !!}
 
             </div>
             </div>
@@ -52,6 +52,6 @@
         })
 
     </script>
-    
+
 
 @stop
