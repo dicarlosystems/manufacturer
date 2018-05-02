@@ -6,7 +6,7 @@ use App\Events\ProductWasCreated;
 use App\Events\ProductWasUpdated;
 use Modules\Manufacturer\Models\ManufacturerProductDetails;
 
-class ManufacturerEventSubscriber
+class ProductEventSubscriber
 {
     public function onProductCreated(ProductWasCreated $event)
     {
@@ -14,18 +14,18 @@ class ManufacturerEventSubscriber
 
         // filter out all non-module fields; convention <module_name>__<field_name>
         $input = array_filter($event->input, function ($key) {
-            return strpos($key, config('manufacturer.name') . '__') === 0;
+            return strpos($key, config('manufacturer.name') . '_') === 0;
         }, ARRAY_FILTER_USE_KEY);
 
         // strip the module identifier from the keys
         $keys = array_map(function ($value) {
-            return str_replace(config('manufacturer.name') . '__', '', $value);
+            return str_replace(config('manufacturer.name') . '_', '', $value);
         }, array_keys($input));
 
         // combine the field values with the stripped key names
         $input = array_combine($keys, $input);
 
-        $details = ManufacturerProductDetails::createNew($product);
+        $details = ManufacturerProductDetails::createNew();
         $details->fill($input);
 
         $product->manufacturerProductDetails()->save($details);
@@ -38,16 +38,22 @@ class ManufacturerEventSubscriber
 
         // filter out all non-module fields; convention <module_name>__<field_name>
         $input = array_filter($event->input, function ($key) {
-            return strpos($key, config('manufacturer.name') . '__') === 0;
+            return strpos($key, config('manufacturer.name') . '_') === 0;
         }, ARRAY_FILTER_USE_KEY);
+
+
 
         // strip the module identifier from the keys
         $keys = array_map(function ($value) {
-            return str_replace(config('manufacturer.name') . '__', '', $value);
+            return str_replace(config('manufacturer.name') . '_', '', $value);
         }, array_keys($input));
 
         // combine the field values with the stripped key names
         $input = array_combine($keys, $input);
+
+        if(!$details) {
+            $details = ManufacturerProductDetails::createNew();
+        }
 
         $details->fill($input);
 
@@ -58,12 +64,12 @@ class ManufacturerEventSubscriber
     {
         $events->listen(
             'App\Events\ProductWasCreated',
-            'Modules\Manufacturer\Listeners\ManufacturerEventSubscriber@onProductCreated'
+            'Modules\Manufacturer\Listeners\ProductEventSubscriber@onProductCreated'
         );
 
         $events->listen(
             'App\Events\ProductWasUpdated',
-            'Modules\Manufacturer\Listeners\ManufacturerEventSubscriber@onProductUpdated'
+            'Modules\Manufacturer\Listeners\ProductEventSubscriber@onProductUpdated'
         );
     }
 }

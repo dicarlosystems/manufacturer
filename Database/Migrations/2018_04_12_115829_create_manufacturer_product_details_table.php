@@ -12,12 +12,13 @@ class CreateManufacturerProductDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create(strtolower('manufacturer__product_details'), function (Blueprint $table) {
+        Schema::create(strtolower('manufacturer_product_details'), function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id')->index();
             $table->unsignedInteger('account_id')->index();
             $table->unsignedInteger('client_id')->index()->nullable();
 
+            $table->string('part_number')->nullable();
 			$table->string('ean13')->nullable();
 			$table->string('upca')->nullable();
             $table->string('barcode')->nullable();
@@ -32,7 +33,7 @@ class CreateManufacturerProductDetailsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->foreign('manufacturer_id')->references('id')->on('manufacturer__manufacturers')->onDelete('cascade');
+            $table->foreign('manufacturer_id')->references('id')->on('manufacturers')->onDelete('cascade');
 
             $table->unsignedInteger('public_id')->index();
             $table->unique( ['account_id', 'public_id'] );
@@ -46,6 +47,6 @@ class CreateManufacturerProductDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(strtolower('manufacturer__product_details'));
+        Schema::dropIfExists(strtolower('manufacturer_product_details'));
     }
 }

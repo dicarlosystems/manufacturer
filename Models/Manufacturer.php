@@ -11,6 +11,11 @@ class Manufacturer extends EntityModel
     use PresentableTrait;
     use SoftDeletes;
 
+     /**
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
+
     /**
      * @var string
      */
@@ -26,11 +31,19 @@ class Manufacturer extends EntityModel
     /**
      * @var string
      */
-    protected $table = 'manufacturer__manufacturers';
+    protected $table = 'manufacturers';
 
     public function getEntityType()
     {
         return 'manufacturer';
+    }
+
+    /**
+     * @return mixed
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User')->withTrashed();
     }
 
 }

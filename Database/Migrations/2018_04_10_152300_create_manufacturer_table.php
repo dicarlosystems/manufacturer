@@ -12,12 +12,13 @@ class CreateManufacturerTable extends Migration
      */
     public function up()
     {
-        Schema::create(strtolower('manufacturer__manufacturers'), function (Blueprint $table) {
+        Schema::create(strtolower('manufacturers'), function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id')->index();
             $table->unsignedInteger('account_id')->index();
             $table->unsignedInteger('client_id')->index()->nullable();
 
+            $table->string('name');
 
             $table->timestamps();
             $table->softDeletes();
@@ -39,6 +40,6 @@ class CreateManufacturerTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(strtolower('manufacturer__manufacturers'));
+        Schema::dropIfExists(strtolower('manufacturers'));
     }
 }

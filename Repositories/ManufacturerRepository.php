@@ -24,15 +24,15 @@ class ManufacturerRepository extends BaseRepository
 
     public function find($filter = null, $userId = false)
     {
-        $query = DB::table('manufacturer__manufacturers')
-                    ->where('manufacturer.account_id', '=', \Auth::user()->account_id)
+        $query = DB::table('manufacturers')
+                    ->where('manufacturers.account_id', '=', \Auth::user()->account_id)
                     ->select(
-
-                        'manufacturer.public_id',
-                        'manufacturer.deleted_at',
-                        'manufacturer.created_at',
-                        'manufacturer.is_deleted',
-                        'manufacturer.user_id'
+                        'manufacturers.name',
+                        'manufacturers.public_id',
+                        'manufacturers.deleted_at',
+                        'manufacturers.created_at',
+                        'manufacturers.is_deleted',
+                        'manufacturers.user_id'
                     );
 
         $this->applyFilters($query, 'manufacturer');

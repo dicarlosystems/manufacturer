@@ -2,7 +2,7 @@
 
 $LANG = array(
 
-    'manufacturer' => 'Manufacturer',
+    'manufacturer' => 'Manufacturers',
     'manufacturer_list' => 'Manufacturer List',
     'archive_manufacturer' => 'Archive Manufacturer',
     'delete_manufacturer' => 'Delete Manufacturer',

@@ -11,6 +11,6 @@ class ManufacturerEventServiceProvider extends EventServiceProvider
     ];
 
     protected $subscribe = [
-        'Modules\Manufacturer\Listeners\ManufacturerEventSubscriber',
+        'Modules\Manufacturer\Listeners\ProductEventSubscriber',
     ];
 }

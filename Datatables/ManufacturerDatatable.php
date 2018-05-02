@@ -15,7 +15,12 @@ class ManufacturerDatatable extends EntityDatatable
     public function columns()
     {
         return [
-            
+            [
+            'name',
+                function ($model) {
+                    return $model->name;
+                }
+            ],
             [
                 'created_at',
                 function ($model) {

@@ -20,15 +20,16 @@ class ManufacturerProductDetails extends EntityModel
      * @var string
      */
     protected $fillable = [
-        "ean13",
-        "upca",
-        "barcode",
+        'part_number',
+        'ean13',
+        'upca',
+        'barcode',
     ];
 
     /**
      * @var string
      */
-    protected $table = 'manufacturer__product_details';
+    protected $table = 'manufacturer_product_details';
 
     public function getEntityType()
     {
