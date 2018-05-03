@@ -1,6 +1,7 @@
 {
     "name": "dicarlosystems/manufacturer-invoiceninja",
     "type": "invoiceninja-module",
+    "license": "Apache-2.0",
     "description": "",
     "authors": [
         {
