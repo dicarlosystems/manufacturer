@@ -1,5 +1,6 @@
 {
-    "name": "invoiceninja/manufacturer",
+    "name": "dicarlosystems/manufacturer-invoiceninja",
+    "type": "invoiceninja-module",
     "description": "",
     "authors": [
         {
