@@ -20,6 +20,7 @@ class ManufacturerProductDetails extends EntityModel
      * @var string
      */
     protected $fillable = [
+        'manufacturer_id',
         'part_number',
         'ean13',
         'upca',
@@ -37,7 +38,7 @@ class ManufacturerProductDetails extends EntityModel
     }
 
     public function manufacturer() {
-        return $this->hasOne('Modules\Manufacturer\Models\Manufacturer');
+        return $this->belongsTo('Modules\Manufacturer\Models\Manufacturer');
     }
 
     public function product() {
