@@ -6,6 +6,7 @@ use Auth;
 use App\Http\Controllers\BaseController;
 use App\Services\DatatableService;
 use Modules\Manufacturer\Datatables\ManufacturerDatatable;
+use Modules\Manufacturer\Models\Manufacturer;
 use Modules\Manufacturer\Repositories\ManufacturerRepository;
 use Modules\Manufacturer\Http\Requests\ManufacturerRequest;
 use Modules\Manufacturer\Http\Requests\CreateManufacturerRequest;
@@ -33,6 +34,7 @@ class ManufacturerController extends BaseController
             'entityType' => 'manufacturer',
             'datatable' => new ManufacturerDatatable(),
             'title' => mtrans('manufacturer', 'manufacturer_list'),
+            'statuses' => Manufacturer::getStatuses(),
         ]);
     }
 
