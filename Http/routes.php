@@ -2,12 +2,12 @@
 
 Route::group(['middleware' => ['web', 'lookup:user', 'auth:user'], 'namespace' => 'Modules\Manufacturer\Http\Controllers'], function()
 {
-    Route::resource('manufacturer', 'ManufacturerController');
-    Route::post('manufacturer/bulk', 'ManufacturerController@bulk');
+    Route::resource('manufacturers', 'ManufacturerController');
+    Route::post('manufacturers/bulk', 'ManufacturerController@bulk');
     Route::get('api/manufacturers', 'ManufacturerController@datatable');
 });
 
 Route::group(['middleware' => 'api', 'namespace' => 'Modules\Manufacturer\Http\ApiControllers', 'prefix' => 'api/v1'], function()
 {
-    Route::resource('manufacturer', 'ManufacturerApiController');
+    Route::resource('manufacturers', 'ManufacturerApiController');
 });
