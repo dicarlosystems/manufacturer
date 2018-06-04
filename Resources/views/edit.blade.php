@@ -32,7 +32,7 @@
 
         {!! Button::normal(trans('texts.cancel'))
                 ->large()
-                ->asLinkTo(URL::to('/manufacturer'))
+                ->asLinkTo(URL::to('/manufacturers'))
                 ->appendIcon(Icon::create('remove-circle')) !!}
 
         {!! Button::success(trans('texts.save'))
