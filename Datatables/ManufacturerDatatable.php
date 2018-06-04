@@ -16,9 +16,9 @@ class ManufacturerDatatable extends EntityDatatable
     {
         return [
             [
-            'name',
+                'name',
                 function ($model) {
-                    return $model->name;
+                    return link_to('manufacturers/'.$model->public_id.'/edit', $model->name)->toHtml();
                 }
             ],
             [
@@ -36,7 +36,7 @@ class ManufacturerDatatable extends EntityDatatable
             [
                 mtrans('manufacturer', 'edit_manufacturer'),
                 function ($model) {
-                    return URL::to("manufacturer/{$model->public_id}/edit");
+                    return URL::to("manufacturers/{$model->public_id}/edit");
                 },
                 function ($model) {
                     return Auth::user()->can('editByOwner', ['manufacturer', $model->user_id]);

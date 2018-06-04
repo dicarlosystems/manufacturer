@@ -12,11 +12,6 @@ class Manufacturer extends EntityModel
     use SoftDeletes;
 
     /**
-    * @var array
-    */
-    protected $dates = ['deleted_at'];
-
-    /**
      * @var string
      */
     protected $presenter = 'Modules\Manufacturer\Presenters\ManufacturerPresenter';
@@ -24,9 +19,7 @@ class Manufacturer extends EntityModel
     /**
      * @var string
      */
-    protected $fillable = [
-        "name"
-    ];
+    protected $fillable = ["name"];
 
     /**
      * @var string

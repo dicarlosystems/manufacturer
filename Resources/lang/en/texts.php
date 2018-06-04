@@ -1,7 +1,7 @@
 <?php
 
 $LANG = array(
-
+	
     'manufacturer' => 'Manufacturers',
     'manufacturer_list' => 'Manufacturer List',
     'archive_manufacturer' => 'Archive Manufacturer',

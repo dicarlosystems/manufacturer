@@ -26,7 +26,7 @@ class ManufacturerTransformer extends EntityTransformer
     public function transform(Manufacturer $manufacturer)
     {
         return array_merge($this->getDefaults($manufacturer), [
-            
+            'name' => $manufacturer->name,
             'id' => (int) $manufacturer->public_id,
             'updated_at' => $this->getTimestamp($manufacturer->updated_at),
             'archived_at' => $this->getTimestamp($manufacturer->deleted_at),

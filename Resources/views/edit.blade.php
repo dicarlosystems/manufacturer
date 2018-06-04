@@ -20,7 +20,8 @@
             <div class="panel panel-default">
             <div class="panel-body">
 
-               {!! Former::text('name') !!}
+                {!! Former::text('name') !!}
+
 
             </div>
             </div>
@@ -32,7 +33,7 @@
 
         {!! Button::normal(trans('texts.cancel'))
                 ->large()
-                ->asLinkTo(URL::to('/manufacturer'))
+                ->asLinkTo(URL::to('/manufacturers'))
                 ->appendIcon(Icon::create('remove-circle')) !!}
 
         {!! Button::success(trans('texts.save'))
@@ -52,6 +53,6 @@
         })
 
     </script>
-
+    
 
 @stop

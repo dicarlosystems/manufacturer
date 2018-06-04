@@ -6,7 +6,6 @@ use Auth;
 use App\Http\Controllers\BaseController;
 use App\Services\DatatableService;
 use Modules\Manufacturer\Datatables\ManufacturerDatatable;
-use Modules\Manufacturer\Models\Manufacturer;
 use Modules\Manufacturer\Repositories\ManufacturerRepository;
 use Modules\Manufacturer\Http\Requests\ManufacturerRequest;
 use Modules\Manufacturer\Http\Requests\CreateManufacturerRequest;
@@ -34,7 +33,6 @@ class ManufacturerController extends BaseController
             'entityType' => 'manufacturer',
             'datatable' => new ManufacturerDatatable(),
             'title' => mtrans('manufacturer', 'manufacturer_list'),
-            'statuses' => Manufacturer::getStatuses(),
         ]);
     }
 
@@ -58,7 +56,7 @@ class ManufacturerController extends BaseController
         $data = [
             'manufacturer' => null,
             'method' => 'POST',
-            'url' => 'manufacturer',
+            'url' => 'manufacturers',
             'title' => mtrans('manufacturer', 'new_manufacturer'),
         ];
 
@@ -89,7 +87,7 @@ class ManufacturerController extends BaseController
         $data = [
             'manufacturer' => $manufacturer,
             'method' => 'PUT',
-            'url' => 'manufacturer/' . $manufacturer->public_id,
+            'url' => 'manufacturers/' . $manufacturer->public_id,
             'title' => mtrans('manufacturer', 'edit_manufacturer'),
         ];
 
@@ -102,7 +100,7 @@ class ManufacturerController extends BaseController
      */
     public function show(ManufacturerRequest $request)
     {
-        return redirect()->to("manufacturer/{$request->manufacturer}/edit");
+        return redirect()->to("manufacturers/{$request->manufacturer}/edit");
     }
 
     /**
@@ -127,7 +125,7 @@ class ManufacturerController extends BaseController
         $ids = request()->input('public_id') ?: request()->input('ids');
         $count = $this->manufacturerRepo->bulk($ids, $action);
 
-        return redirect()->to('manufacturer')
+        return redirect()->to('manufacturers')
             ->with('message', mtrans('manufacturer', $action . '_manufacturer_complete'));
     }
 }
