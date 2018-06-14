@@ -22,7 +22,7 @@ class UpdateManufacturerRequest extends ManufacturerRequest
     public function rules()
     {
         return [
-
+            'name' => 'required',
         ];
     }
 }
