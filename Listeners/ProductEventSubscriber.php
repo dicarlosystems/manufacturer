@@ -30,7 +30,9 @@ class ProductEventSubscriber
         $input = array_combine($keys, $input);
 
         // replace the manufacturer public ID with the internal ID
-        $input['manufacturer_id'] = $this->manufacturerRepo->findByPublicIdsWithTrashed($input['manufacturer_public_id'])->first()->id;
+        if(array_key_exists('manufacturer_public_id', $input)) {
+            $input['manufacturer_id'] = $this->manufacturerRepo->findByPublicIdsWithTrashed($input['manufacturer_public_id'])->first()->id;
+        }
 
         return $input;
     }
@@ -52,7 +54,7 @@ class ProductEventSubscriber
         $product = $event->product;
         $details = $product->manufacturerProductDetails()->first();
 
-         $input = $this->fixInput($event->input);
+        $input = $this->fixInput($event->input);
 
         if(!$details) {
             $details = ManufacturerProductDetails::createNew();

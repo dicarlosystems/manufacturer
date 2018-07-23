@@ -1,5 +1,5 @@
 @if($product && $product->manufacturerProductDetails()->exists())
-    {{ Former::populateField(config('manufacturer.name') . '__manufacturer_public_id', $product->manufacturerProductDetails()->first()->manufacturer->public_id) }}
+    {{ Former::populateField(config('manufacturer.name') . '__manufacturer_public_id', ($product->manufacturerProductDetails()->first()->manufacturer()->exists() ? $product->manufacturerProductDetails()->first()->manufacturer->public_id : null)) }}
     {{ Former::populateField(config('manufacturer.name') . '__part_number', $product->manufacturerProductDetails()->first()->part_number) }}
     {{ Former::populateField(config('manufacturer.name') . '__ean13', $product->manufacturerProductDetails()->first()->ean13) }}
     {{ Former::populateField(config('manufacturer.name') . '__upca', $product->manufacturerProductDetails()->first()->upca) }}
