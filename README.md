@@ -7,7 +7,7 @@ This module adds manufacturer data such as part number, UPC, etc to products dat
 ## Install via Composer
 
 ```
-composer require dicarlosystems/manufacturer-invoiceninja
+composer require dicarlosystems/manufacturer
 ```
 
 After installing, run the migrations:
