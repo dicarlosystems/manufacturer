@@ -23,7 +23,6 @@ class UpdateManufacturerRequest extends ManufacturerRequest
     {
         return [
             'name' => 'required',
-
         ];
     }
 }

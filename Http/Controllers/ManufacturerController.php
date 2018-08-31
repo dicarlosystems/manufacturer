@@ -33,6 +33,7 @@ class ManufacturerController extends BaseController
             'entityType' => 'manufacturer',
             'datatable' => new ManufacturerDatatable(),
             'title' => mtrans('manufacturer', 'manufacturer_list'),
+            // 'statuses' => Manufacturer::getStatuses(),
         ]);
     }
 

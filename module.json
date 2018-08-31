@@ -15,5 +15,6 @@
         "start.php"
     ],
     "icon": "puzzle-piece",
-    "plural": "manufacturers"
+    "plural": "manufacturers",
+    "base-route": "manufacturers"
 }
