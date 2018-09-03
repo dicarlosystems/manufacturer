@@ -9,11 +9,6 @@
             "email": "chris@dicarlosystems.ca"
         }
     ],
-    "scripts": {
-        "post-install-cmd": [
-            "php artisan module:migrate Manufacturer"
-        ]
-    },
     "autoload": {
         "psr-4": {
             "Modules\\Manufacturer\\": ""
