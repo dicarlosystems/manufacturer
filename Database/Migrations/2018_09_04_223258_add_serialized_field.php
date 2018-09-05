@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddSerializableField extends Migration
+class AddSerializedField extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AddSerializableField extends Migration
     public function up()
     {
         Schema::table('manufacturer_product_details', function ($table) {
-            $table->boolean('serializable');
+            $table->boolean('serialized');
         });
     }
 
@@ -25,7 +25,7 @@ class AddSerializableField extends Migration
     public function down()
     {
         Schema::table('manufacturer_product_details', function ($table) {
-            $table->dropColumn('serializable');
+            $table->dropColumn('serialized');
         });
     }
 }
