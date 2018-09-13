@@ -10,11 +10,13 @@
         "Modules\\Manufacturer\\Providers\\ManufacturerEventServiceProvider",
         "Modules\\Manufacturer\\Providers\\ManufacturerViewComposerProvider"
     ],
-    "aliases":{},
+    "aliases": [],
     "files": [
         "start.php"
     ],
     "icon": "puzzle-piece",
     "plural": "manufacturers",
-    "base-route": "manufacturers"
+    "base-route": "manufacturers",
+    "has_settings": 1,
+    "no-sidebar": 1
 }
