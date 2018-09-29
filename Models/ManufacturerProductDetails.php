@@ -23,6 +23,7 @@ class ManufacturerProductDetails extends EntityModel
         'manufacturer_id',
         'part_number',
         'gtin',
+        'serialized'
     ];
 
     /**
