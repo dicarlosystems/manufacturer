@@ -11,6 +11,7 @@ $LANG = array(
     'new_manufacturer' => 'New Manufacturer',
     'created_manufacturer' => 'Successfully created manufacturer',
     'updated_manufacturer' => 'Successfully updated manufacturer',
+    'fieldLabel' => 'Manufacturer',
 
 );
 

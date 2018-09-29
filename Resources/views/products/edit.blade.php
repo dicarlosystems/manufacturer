@@ -5,7 +5,12 @@
     {{ Former::populateField(config('manufacturer.name') . '__serialized', $product->manufacturerProductDetails()->first()->serialized) }}
 @endif
 
-{!! Former::select(config('manufacturer.name') . '__manufacturer_public_id')->fromQuery($manufacturers, 'name', 'public_id')->placeholder('Select the manufacturer')->label('Manufacturer') !!}
+@render('App\Http\ViewComponents\SimpleSelectComponent', ['entityType' => 'product',
+    'items' => $manufacturers,
+    'itemLabel' => 'name',
+    'fieldLabel' => 'fieldLabel',
+    'module' => 'manufacturer'])
+
 {!! Former::text(config('manufacturer.name') . '__part_number')->label('Part Number') !!}
 {!! Former::text(config('manufacturer.name') . '__gtin')->label('GTIN') !!}
 {!! Former::checkbox(config('manufacturer.name') . '__serialized')->label('Is Serialized')->value(1) !!}

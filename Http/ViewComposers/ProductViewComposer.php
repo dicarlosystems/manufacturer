@@ -16,7 +16,7 @@ class ProductViewComposer
 
     public function compose(View $view)
     {
-        $manufacturers = $this->manufacturerRepo->find()->get()->toArray();
+        $manufacturers = $this->manufacturerRepo->find()->get();
         $view->with('manufacturers', $manufacturers);
     }
 }
