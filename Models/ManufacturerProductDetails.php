@@ -22,7 +22,7 @@ class ManufacturerProductDetails extends EntityModel
     protected $fillable = [
         'manufacturer_id',
         'part_number',
-        'gtin',
+        'upc',
         'serialized'
     ];
 
