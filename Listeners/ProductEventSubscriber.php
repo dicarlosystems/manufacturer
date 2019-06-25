@@ -30,7 +30,7 @@ class ProductEventSubscriber
         $input = array_combine($keys, $input);
 
         // replace the manufacturer public ID with the internal ID
-        if(array_key_exists('manufacturer_public_id', $input)) {
+        if(array_key_exists('manufacturer_public_id', $input) && !empty($input['manufacturer_public_id'])) {
             $input['manufacturer_id'] = $this->manufacturerRepo->findByPublicIdsWithTrashed($input['manufacturer_public_id'])->first()->id;
         }
 
