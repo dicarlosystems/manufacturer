@@ -17,6 +17,6 @@
     "icon": "puzzle-piece",
     "plural": "manufacturers",
     "base-route": "manufacturers",
-    "has_settings": 1,
+    "has_settings": 0,
     "no-sidebar": 1
 }

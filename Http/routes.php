@@ -2,6 +2,10 @@
 
 Route::group(['middleware' => ['web', 'lookup:user', 'auth:user'], 'namespace' => 'Modules\Manufacturer\Http\Controllers'], function()
 {
+    Route::get('manufacturer', function() {
+        return redirect('manufacturers');
+    });
+
     Route::resource('manufacturers', 'ManufacturerController');
     Route::post('manufacturers/bulk', 'ManufacturerController@bulk');
     Route::get('api/manufacturers', 'ManufacturerController@datatable');
