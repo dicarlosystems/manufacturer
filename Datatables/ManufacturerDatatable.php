@@ -18,7 +18,7 @@ class ManufacturerDatatable extends EntityDatatable
             [
                 'name',
                 function ($model) {
-                    return link_to('manufacturers/'.$model->public_id.'/edit', $model->name)->toHtml(); 
+                    return link_to('manufacturers/'.$model->public_id.'/edit', $model->name)->toHtml();
                 }
             ],
             [
@@ -44,5 +44,4 @@ class ManufacturerDatatable extends EntityDatatable
             ],
         ];
     }
-
 }

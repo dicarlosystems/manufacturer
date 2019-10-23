@@ -12,7 +12,7 @@ class RenameGtinToUpc extends Migration
      */
     public function up()
     {
-        Schema::table('manufacturer_product_details', function(Blueprint $table) {
+        Schema::table('manufacturer_product_details', function (Blueprint $table) {
             $table->renameColumn('gtin', 'upc');
         });
     }
@@ -24,7 +24,7 @@ class RenameGtinToUpc extends Migration
      */
     public function down()
     {
-        Schema::table('manufacturer_product_details', function(Blueprint $table) {
+        Schema::table('manufacturer_product_details', function (Blueprint $table) {
             $table->renameColumn('upc', 'gtin');
         });
     }

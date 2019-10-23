@@ -5,6 +5,7 @@ namespace Modules\Manufacturer\Repositories;
 use DB;
 use Modules\Manufacturer\Models\Manufacturer;
 use App\Ninja\Repositories\BaseRepository;
+
 //use App\Events\ManufacturerWasCreated;
 //use App\Events\ManufacturerWasUpdated;
 
@@ -29,7 +30,7 @@ class ManufacturerRepository extends BaseRepository
         $query = DB::table('manufacturers')
                     ->where('manufacturers.account_id', '=', \Auth::user()->account_id)
                     ->select(
-                        'manufacturers.name', 
+                        'manufacturers.name',
                         'manufacturers.public_id',
                         'manufacturers.deleted_at',
                         'manufacturers.created_at',
@@ -37,7 +38,7 @@ class ManufacturerRepository extends BaseRepository
                         'manufacturers.user_id'
                     );
 
-        if($filter) {
+        if ($filter) {
             $query->where(function ($query) use ($filter) {
                     $query->where('manufacturers.name', 'like', '%'.$filter.'%');
             });
@@ -69,5 +70,4 @@ class ManufacturerRepository extends BaseRepository
 
         return $entity;
     }
-
 }

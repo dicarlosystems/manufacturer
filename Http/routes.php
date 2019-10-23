@@ -1,8 +1,7 @@
 <?php
 
-Route::group(['middleware' => ['web', 'lookup:user', 'auth:user'], 'namespace' => 'Modules\Manufacturer\Http\Controllers'], function()
-{
-    Route::get('manufacturer', function() {
+Route::group(['middleware' => ['web', 'lookup:user', 'auth:user'], 'namespace' => 'Modules\Manufacturer\Http\Controllers'], function () {
+    Route::get('manufacturer', function () {
         return redirect('manufacturers');
     });
 
@@ -14,7 +13,6 @@ Route::group(['middleware' => ['web', 'lookup:user', 'auth:user'], 'namespace' =
     Route::post('settings/manufacturer', 'ManufacturerController@saveSettings');
 });
 
-Route::group(['middleware' => 'api', 'namespace' => 'Modules\Manufacturer\Http\ApiControllers', 'prefix' => 'api/v1'], function()
-{
+Route::group(['middleware' => 'api', 'namespace' => 'Modules\Manufacturer\Http\ApiControllers', 'prefix' => 'api/v1'], function () {
     Route::resource('manufacturers', 'ManufacturerApiController');
 });

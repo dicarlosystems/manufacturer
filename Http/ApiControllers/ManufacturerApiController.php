@@ -175,5 +175,4 @@ class ManufacturerApiController extends BaseAPIController
 
         return $this->itemResponse($manufacturer);
     }
-
 }

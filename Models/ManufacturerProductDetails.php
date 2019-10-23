@@ -36,12 +36,13 @@ class ManufacturerProductDetails extends EntityModel
         return 'manufacturer_product_details';
     }
 
-    public function manufacturer() {
+    public function manufacturer()
+    {
         return $this->belongsTo('Modules\Manufacturer\Models\Manufacturer');
     }
 
-    public function product() {
+    public function product()
+    {
         return $this->belongsTo('App\Models\Product');
     }
-
 }

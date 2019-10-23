@@ -62,7 +62,8 @@ class ManufacturerServiceProvider extends AuthServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../Config/relations.php', 'modules.relations');
 
         $this->mergeConfigFrom(
-            __DIR__.'/../Config/config.php', 'manufacturer'
+            __DIR__.'/../Config/config.php',
+            'manufacturer'
         );
     }
 

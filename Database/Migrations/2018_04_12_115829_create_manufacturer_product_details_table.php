@@ -19,10 +19,10 @@ class CreateManufacturerProductDetailsTable extends Migration
             $table->unsignedInteger('client_id')->index()->nullable();
 
             $table->string('part_number')->nullable();
-			$table->string('ean13')->nullable();
-			$table->string('upca')->nullable();
+            $table->string('ean13')->nullable();
+            $table->string('upca')->nullable();
             $table->string('barcode')->nullable();
-			$table->unsignedInteger('manufacturer_id')->nullable();
+            $table->unsignedInteger('manufacturer_id')->nullable();
             $table->unsignedInteger('product_id');
 
             $table->timestamps();
@@ -36,7 +36,7 @@ class CreateManufacturerProductDetailsTable extends Migration
             $table->foreign('manufacturer_id')->references('id')->on('manufacturers')->onDelete('cascade');
 
             $table->unsignedInteger('public_id')->index();
-            $table->unique( ['account_id', 'public_id'] );
+            $table->unique(['account_id', 'public_id']);
         });
     }
 

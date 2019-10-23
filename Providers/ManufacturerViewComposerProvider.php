@@ -15,7 +15,8 @@ class ManufacturerViewComposerProvider extends ServiceProvider
     public function boot()
     {
         View::composer(
-            'accounts.product', 'Modules\Manufacturer\Http\ViewComposers\ProductViewComposer'
+            'accounts.product',
+            'Modules\Manufacturer\Http\ViewComposers\ProductViewComposer'
         );
     }
 

@@ -29,7 +29,7 @@ class CreateManufacturerTable extends Migration
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
 
             $table->unsignedInteger('public_id')->index();
-            $table->unique( ['account_id', 'public_id'] );
+            $table->unique(['account_id', 'public_id']);
         });
     }
 

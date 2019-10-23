@@ -11,11 +11,13 @@ class ProductEventSubscriber
 {
     protected $manufacturerRepo;
 
-    public function __construct(ManufacturerRepository $manufacturerRepo) {
+    public function __construct(ManufacturerRepository $manufacturerRepo)
+    {
         $this->manufacturerRepo = $manufacturerRepo;
     }
 
-    protected function fixInput($input) {
+    protected function fixInput($input)
+    {
         // filter out all non-module fields; convention <module_name>__<field_name>
         $input = array_filter($input, function ($key) {
             return strpos($key, config('manufacturer.name') . '__') === 0;
@@ -30,7 +32,7 @@ class ProductEventSubscriber
         $input = array_combine($keys, $input);
 
         // replace the manufacturer public ID with the internal ID
-        if(array_key_exists('manufacturer_public_id', $input) && !empty($input['manufacturer_public_id'])) {
+        if (array_key_exists('manufacturer_public_id', $input) && !empty($input['manufacturer_public_id'])) {
             $input['manufacturer_id'] = $this->manufacturerRepo->findByPublicIdsWithTrashed($input['manufacturer_public_id'])->first()->id;
         }
 
@@ -56,7 +58,7 @@ class ProductEventSubscriber
 
         $input = $this->fixInput($event->input);
 
-        if(!$details) {
+        if (!$details) {
             $details = ManufacturerProductDetails::createNew();
         }
 
