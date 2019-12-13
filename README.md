@@ -7,7 +7,7 @@ This module adds manufacturer data such as part number, UPC, etc to products dat
 ## Install via Composer
 
 ```
-php artisan module:install dicarlosystems/manufacturer --type=github
+php artisan module:install dicarlosystems/manufacturer --type=github-https
 ```
 
 After installing, run the migrations:
